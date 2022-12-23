@@ -1,0 +1,439 @@
+<html style="background:rgb(182, 237, 239);" onmousedown="return false;" onkeydown="keyy();">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="hs-1.png"/>
+        <title>传奇世界</title>
+    </head>
+    <body>
+        <style>
+            .say{
+                border:solid;
+                border-radius:10px;
+                border-color:white;
+                color:white;
+                font-size:25px;
+                background-color:orange;
+                width:10em;
+                height:15em;
+                position:absolute;
+                top:5em;
+                left:5em;
+                z-index:100;
+            }
+            button{
+                background-color:darkgoldenrod;
+                border-color:white;
+                border:solid;
+                font-size:25px;
+                border-radius:10px;
+                color:white;
+            } 
+            .spt{
+position:absolute;
+            }
+
+        </style>
+        <div id="game">
+            <script src="fana.js"></script>
+        <script>
+          document.write("<div id='say'></div>");
+            var coin=0;
+            function say(a){
+                document.getElementById("say").innerHTML="<div class='say' onClick='style.width=0;style.fontSize=0;'>"+a+"</div>";
+            }
+            var treer_fight=false;
+            document.write("<div id='treer_fighter_in'></div>");
+            document.write("<div id='di_ren_in'></div>");
+            function summon(a){
+        if(a=="treer"){
+          if(treer_fight==false){
+            document.getElementById("treer_fighter_in").innerHTML="<img src='treer_fighter.png' id='treer_fighter1' class='spt' style='top:5em;left:5em;z-index:99;'>";
+            treer_fight=true;
+            setTimeout("sendd('树精小兵','我快不行了,我的生命之力耗尽了......<br>再见了......');say(hc.send);",120000-2000);
+            setTimeout("document.getElementById('treer_fighter_in').innerHTML='';tree_fight=false;",120000);
+        }
+           }
+           if(a=="di_ren"){
+            document.getElementById("di_ren_in").innerHTML="<img src='di_ren.png' class='spt' id='di_ren1' style='left:300em;top:20em;z-index:99;'>";
+           }
+    
+      }
+        </script>
+        <img src="hs-1.png" onClick="javascript:width=0;;" width="600" style="position:relative;left:20em;z-index:99;">
+        <div id="treer_in">
+        <img src="treer.png" width="20%" id="treer" class="spt" onclick="treer_ss();" style="z-index:98;">
+        </div>
+        <img src="fire_mtn.png" class="spt" style="left:300em;" id="fire_mtn">
+        <img src="gh_1.png" class="spt" style="left:10em;z-index:1;" id="gh_1">
+        <img src="jy.png" class="spt" style="left:310em;" id="jy">
+        <img src="jg.png" class="spt" style="left:100em;z-index:1;" id="jg" onclick="javascript:jg_p();">
+        <img src="player.png" width="10%" id="player" style="position:absolute;top:13em;left:30em;z-index:98;">
+        <span id="xy" style="position:absolute;color:orange;z-index:99;">0,0</span>
+        ________<button title="冰块" id="ice">🧊0</button>
+        <script>
+            var game={};
+            game.x=0;
+            game.y=0;
+            var treer_hd=50;
+            var coin=0;
+a=65; b=66; c=67; d=68; e=69; f=70; g=71; h=72; i=73; j=74; k=75; l=76; m=77; n=78; o=79; p=80; q=81; r=82; s=83; t=84; u=85; v=86; w=87; x=88; y=89; z=90; N1=97; N2=98; N0=96; N3=99; N4=100; N5=101; N6=102; N7=103; N8=104; N9=105; star=106; Plus=107; Enter=108; unPlus=109; dot=110; slash=111; F1=112; F2=113; F3=114; F4=115; F5=116; F6=117; F7=118; F8=119; F9=120; F10=121; F11=122; F12=123;
+            document.body.style.backgroundColor="#AFECFF";
+            var jg_pp=0;
+            function jg_p(){
+                coin=coin+1;
+                if(jg_pp>5){
+                    say("你不能再贪得无厌了,要学会自己赚金币!");
+                    coin=coin-1;
+                }
+                jg_pp=jg_pp+1;
+            }
+
+
+
+            function o_woc_treer_fighter(){
+              document.getElementById("treer_fighter_in").innerHTML="<img src='treer_fighter.png' id='treer_fighter1' class='spt' style='top:5em;left:5em;z-index:99;'>";
+            }
+            function keyy(){
+                var A=document.getElementById("treer");
+          if (event.keyCode==a){
+            A.style.left = A.offsetLeft+50+"px";
+          game.x=game.x-1;
+          }
+          if (event.keyCode==d){
+
+            A.style.left = A.offsetLeft-50+"px";
+          game.x=game.x+1;
+
+
+          }
+          if (event.keyCode==s){
+            A.style.top = A.offsetTop-50+"px";
+            game.y=game.y-1;
+    
+          }
+          if (event.keyCode==w){
+            A.style.top = A.offsetTop+50+"px";
+            game.y=game.y+1;
+
+          }
+
+          var B=document.getElementById("fire_mtn");
+
+
+          if (event.keyCode==a){
+            B.style.left = B.offsetLeft+50+"px";
+          game.x=game.x-1;
+          }
+          if (event.keyCode==d){
+
+            B.style.left = B.offsetLeft-50+"px";
+          game.x=game.x+1;
+
+
+          }
+          if (event.keyCode==s){
+            B.style.top = B.offsetTop-50+"px";
+            game.y=game.y-1;
+    
+          }
+          if (event.keyCode==w){
+            B.style.top = B.offsetTop+50+"px";
+            game.y=game.y+1;
+
+          }
+
+
+          
+          var C=document.getElementById("gh_1");
+
+
+          if (event.keyCode==a){
+            C.style.left = C.offsetLeft+50+"px";
+          game.x=game.x-1;
+          }
+          if (event.keyCode==d){
+
+            C.style.left = C.offsetLeft-50+"px";
+          game.x=game.x+1;
+
+
+          }
+          if (event.keyCode==s){
+            C.style.top = C.offsetTop-50+"px";
+            game.y=game.y-1;
+    
+          }
+          if (event.keyCode==w){
+            C.style.top = C.offsetTop+50+"px";
+            game.y=game.y+1;
+
+          }
+
+
+
+
+          var D=document.getElementById("jy");
+
+
+if (event.keyCode==a){
+  D.style.left = D.offsetLeft+50+"px";
+}
+if (event.keyCode==d){
+
+  D.style.left = D.offsetLeft-50+"px";
+
+
+}
+if (event.keyCode==s){
+  D.style.top = D.offsetTop-50+"px";
+
+}
+if (event.keyCode==w){
+  D.style.top = D.offsetTop+50+"px";
+
+}
+
+
+
+
+
+
+
+var F=document.getElementById("jg");
+
+
+if (event.keyCode==a){
+  F.style.left = F.offsetLeft+50+"px";
+}
+if (event.keyCode==d){
+
+  F.style.left = F.offsetLeft-50+"px";
+
+
+}
+if (event.keyCode==s){
+  F.style.top = F.offsetTop-50+"px";
+
+}
+if (event.keyCode==w){
+  F.style.top = F.offsetTop+50+"px";
+
+}
+
+
+
+if(document.getElementById("treer_fighter1")==null){}else{
+  var E=document.getElementById("treer_fighter1");
+
+
+if (event.keyCode==a){
+  E.style.left = E.offsetLeft-10+"px";
+}
+if (event.keyCode==d){
+
+  E.style.left = E.offsetLeft+10+"px";
+
+
+}
+if (event.keyCode==s){
+  E.style.top = E.offsetTop+50+"px";
+
+}
+if (event.keyCode==w){
+  E.style.top = E.offsetTop-50+"px";
+
+}
+}
+
+
+if(document.getElementById("di_ren1")==null){}else{
+  var G=document.getElementById("di_ren1");
+
+  if (event.keyCode==a){
+  G.style.left = G.offsetLeft+50+"px";
+}
+if (event.keyCode==d){
+
+  G.style.left = G.offsetLeft-50+"px";
+
+
+}
+if (event.keyCode==s){
+  G.style.top = G.offsetTop-50+"px";
+
+}
+if (event.keyCode==w){
+  G.style.top = G.offsetTop+50+"px";
+
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+          document.getElementById("xy").innerHTML=game.x+","+game.y;
+
+
+
+
+
+if(event.keyCode==e){
+  
+if(document.getElementById("treer_fighter1")==null){}else{
+  if(game.x>200){
+  document.getElementById("treer_fighter_in").innerHTML="<img src='treer_fighter_2.png' id='treer_fighter1' class='spt' style='top:5em;left:5em;z-index:99;'>";
+  setTimeout(o_woc_treer_fighter,200);
+
+  if(document.getElementById("xy").innerHTML=="270,-9"){
+    setTimeout("rotate('di_ren1',90);lighty('di_ren1',30);",10000-500);
+    setTimeout("document.getElementById('di_ren_in').innerHTML='';",10000);
+    setTimeout("lighty('di_ren1',0);rotate('di_ren1',0);",10001);
+    for(var i=0;i<10;i++){
+    setTimeout("lighty('di_ren1',50);",1000);
+    setTimeout("lighty('di_ren1',0);",2000);
+    }
+if(coin<2000){
+  coin=coin+50;
+}else{
+  say("还想无限刷金币?");
+}
+  }
+  }
+}
+}
+
+
+
+
+
+
+          if(event.keyCode==z){
+            if(document.getElementById("xy").innerHTML=="-18,6"){
+         say("哈喽,我是树精<br><br>别忘了警惕火山怪兽!");
+            }
+            if(document.getElementById("xy").innerHTML=="21,-9"){
+         say("家没有开放!");
+            }
+            if(document.getElementById("xy").innerHTML=="99,-9"){
+         say("唉,勇士,我们很想帮你...可是我们动不了...<br>如今火山怪兽军团势力扩大,要毁灭我们的家园...勇士,帮助我们吧!<br>你可以反复点击这个水池获得冰块,但是要在十分钟内花掉!");
+            }
+            if(document.getElementById("xy").innerHTML=="117,-9"){
+         if(coin>1){
+            sendd("冰灵","看来,你已经得到了几个冰块,我们是商人,你可以在我们这里购买兵马和更好的武器!<br>打开此窗口自动花费2🧊买一个树精小兵!");
+            coin=coin-2;
+            say(hc.send);
+            summon("treer");
+         }else{
+            sendd("土方块","你这个家伙没钱来我这干什么?");
+            say(hc.send);
+         }
+            }
+
+            if(document.getElementById("xy").innerHTML=="264,0"){
+              sendd("火山小怪","你是什么人?啊哈哈哈来打我啊");
+         say(hc.send);
+            }
+        }
+var xxx=false;
+if(game.x>201){
+    document.body.style.backgroundColor="red";
+}
+if(game.x<200){
+    document.body.style.backgroundColor="#AFECFF";
+}
+if(game.x<-120){
+    document.body.style.backgroundColor="black";
+    if(xxx==false){
+    say("这里是世界之外的虚空....");
+    xxx=true;
+    }
+    xxx=true;
+}
+                            
+                }
+
+                function xy_clear(){
+                    game.x=0;
+                    game.y=0;
+                    document.getElementById("xy").innerHTML="0,0";
+                }
+                function treer_ss(){
+                    if(document.getElementById("xy").innerHTML=="-18,6"){
+                        treer_hd=treer_hd-1;
+                        lighty("treer",80);
+                    setTimeout("lighty('treer',100)",200);
+
+                    if(treer_hd<0){
+                        rotate("treer",90);
+                        lighty("treer",30);
+                        setTimeout("document.getElementById('treer').width=0",500);
+                        coin=coin+50;
+                    }
+                    if(treer_hd<40){
+                        document.getElementById("treer_in").innerHTML="<img src='treer_2.png' width='20%'' id='treer' class='spt' onclick='treer_ss();'>";
+                        xy_clear();
+                    }
+                    if(treer_hd<30){
+                        document.getElementById("treer_in").innerHTML="<img src='treer_3.png' width='20%'' id='treer' class='spt' onclick='treer_ss();'>";
+                        xy_clear();
+                    }
+                }
+                }
+
+                sendd("🧊",coin);
+                function cp(){
+                    sendd("🧊",coin);
+                    document.getElementById("ice").innerHTML=hc.send;
+                    setTimeout(cp,100);
+                }
+                cp();
+
+                function cp_n(){
+                    if(coin==0){}else{
+                      coin=0;
+                      say("哦,本次清空损失了"+coin+"个冰块!!都化成水了...");
+                    }
+                    setTimeout(cp_n,600000);
+                }
+                cp_n();
+
+                
+        function aaaaa(){
+          summon("di_ren");
+          setTimeout(aaaaa,120000);
+          }
+        aaaaa();
+
+        function aaaaa_d(){
+          ggg=document.getElementById("di_ren1");
+         hamahama=document.getElementById("treer_fighter1");
+          if(document.getElementById("di_ren1")==null){}else{
+          setTimeout("ggg.style.left = ggg.offsetLeft+50+'px';",1000);
+          setTimeout("ggg.style.left = ggg.offsetLeft-50+'px';",3000);
+          }
+
+          if(document.getElementById("treer_fighter1")==null){}else{
+          setTimeout("hamahama.style.left = hamahama.offsetLeft+50+'px';",1000);
+          setTimeout("hamahama.style.left = hamahama.offsetLeft-50+'px';",2000);
+          }
+          setTimeout(aaaaa_d,3000);
+        }
+        aaaaa_d();
+
+
+        document.body.style.overflow='hidden';
+            
+
+        </script>
+        </div>
+    </body>
+</html>
