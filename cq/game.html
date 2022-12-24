@@ -41,17 +41,13 @@ position:absolute;
             function say(a){
                 document.getElementById("say").innerHTML="<div class='say' onClick='style.width=0;style.fontSize=0;'>"+a+"</div>";
             }
-            var treer_fight=false;
             document.write("<div id='treer_fighter_in'></div>");
             document.write("<div id='di_ren_in'></div>");
             function summon(a){
         if(a=="treer"){
-          if(treer_fight==false){
             document.getElementById("treer_fighter_in").innerHTML="<img src='treer_fighter.png' id='treer_fighter1' class='spt' style='top:5em;left:5em;z-index:99;'>";
-            treer_fight=true;
-            setTimeout("sendd('树精小兵','我快不行了,我的生命之力耗尽了......<br>再见了......');say(hc.send);",120000-2000);
+            setTimeout("sendd('树精小兵','我快不行了,我的生命之力耗尽了......<br>再见了......');say(hc.send);",120000-200);
             setTimeout("document.getElementById('treer_fighter_in').innerHTML='';tree_fight=false;",120000);
-        }
            }
            if(a=="di_ren"){
             document.getElementById("di_ren_in").innerHTML="<img src='di_ren.png' class='spt' id='di_ren1' style='left:300em;top:20em;z-index:99;'>";
@@ -67,6 +63,9 @@ position:absolute;
         <img src="gh_1.png" class="spt" style="left:10em;z-index:1;" id="gh_1">
         <img src="jy.png" class="spt" style="left:310em;" id="jy">
         <img src="jg.png" class="spt" style="left:100em;z-index:1;" id="jg" onclick="javascript:jg_p();">
+        <img src="drt.png" class="spt" style="top:200em;left:100em;" id="drt" width="120%">
+        <img src="drt_city.png" class="spt" style="top:250em;left:80em;" id="drt_city" width="120%">
+        <img src="drt_city2.png" class="spt" style="top:300em;left:70em;" id="drt_city1" width="120%">
         <img src="player.png" width="10%" id="player" style="position:absolute;top:13em;left:30em;z-index:98;">
         <span id="xy" style="position:absolute;color:orange;z-index:99;">0,0</span>
         ________<button title="冰块" id="ice">🧊0</button>
@@ -76,6 +75,7 @@ position:absolute;
             game.y=0;
             var treer_hd=50;
             var coin=0;
+            var water=0;
 a=65; b=66; c=67; d=68; e=69; f=70; g=71; h=72; i=73; j=74; k=75; l=76; m=77; n=78; o=79; p=80; q=81; r=82; s=83; t=84; u=85; v=86; w=87; x=88; y=89; z=90; N1=97; N2=98; N0=96; N3=99; N4=100; N5=101; N6=102; N7=103; N8=104; N9=105; star=106; Plus=107; Enter=108; unPlus=109; dot=110; slash=111; F1=112; F2=113; F3=114; F4=115; F5=116; F6=117; F7=118; F8=119; F9=120; F10=121; F11=122; F12=123;
             document.body.style.backgroundColor="#AFECFF";
             var jg_pp=0;
@@ -270,6 +270,77 @@ if (event.keyCode==w){
 
 
 
+var J=document.getElementById("drt");
+
+
+if (event.keyCode==a){
+  J.style.left = J.offsetLeft+50+"px";
+}
+if (event.keyCode==d){
+
+  J.style.left = J.offsetLeft-50+"px";
+
+
+}
+if (event.keyCode==s){
+  J.style.top = J.offsetTop-50+"px";
+
+}
+if (event.keyCode==w){
+  J.style.top = J.offsetTop+50+"px";
+
+}
+
+
+
+
+var T=document.getElementById("drt_city");
+
+
+if (event.keyCode==a){
+  T.style.left = T.offsetLeft+50+"px";
+}
+if (event.keyCode==d){
+
+  T.style.left = T.offsetLeft-50+"px";
+
+
+}
+if (event.keyCode==s){
+  T.style.top = T.offsetTop-50+"px";
+
+}
+if (event.keyCode==w){
+  T.style.top = T.offsetTop+50+"px";
+
+}
+
+
+var L=document.getElementById("drt_city1");
+
+
+if (event.keyCode==a){
+  L.style.left = L.offsetLeft+50+"px";
+}
+if (event.keyCode==d){
+
+  L.style.left = L.offsetLeft-50+"px";
+
+
+}
+if (event.keyCode==s){
+  L.style.top = L.offsetTop-50+"px";
+
+}
+if (event.keyCode==w){
+  L.style.top = L.offsetTop+50+"px";
+
+}
+
+
+
+
+
 
 
 
@@ -313,6 +384,19 @@ if(coin<2000){
 
 
 
+if(document.getElementById("xy").innerHTML=="117,-198"){
+                if(coin>10){
+                sendd("枯树怪","咳咳,你目前还有"+water+"个圣水之源,哈哈,这10个金币就当给我的报酬了");
+                say(hc.send);
+                coin=coin-10;
+                }else{
+                sendd("枯树怪","太穷了,没得偷");
+                say(hc.send);
+                }
+            }
+
+
+
 
 
 
@@ -342,6 +426,14 @@ if(coin<2000){
               sendd("火山小怪","你是什么人?啊哈哈哈来打我啊");
          say(hc.send);
             }
+
+            if(document.getElementById("xy").innerHTML=="105,-216"){
+              water=water+1;
+                sendd("游戏系统","成功获得圣水之源!");
+                say(hc.send);
+            }
+            
+
         }
 var xxx=false;
 if(game.x>201){
