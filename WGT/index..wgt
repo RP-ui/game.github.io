@@ -1,0 +1,46 @@
+bg("bg.png");
+pic("beach.png","bc");
+pic("bcp.png","bcp");
+plus("<style>#bcp{position:relative;z-index:99;top:-50em;}</style>");
+zz="fana_id";
+fana("bcp");     
+_.width=1000;
+ctn keyy(){
+     if(event.keyCode==w){
+          _.width=_.width+10;
+          zz="x___-";
+          x__(_,10);
+     }
+     if(event.keyCode==s){
+          _.width=_.width-10;
+     }
+     if(event.keyCode==a){
+          zz="x___+";
+          x__(_,10);
+     }
+     if(event.keyCode==d){
+          zz="x___-";
+          x__(_,20);
+     }
+}
+
+dc.onkeydown=keyy;
+dc.title="RP临时想象出的一个小项目";
+plus("<style>a{color:lightgreen;}h1{color:white;font-size:30px;}span{color:white;font-size:15px;}div{border-radius:10px;border:solid;border-color:lightgreen;}</style>");
+plus("<br>");
+plus("<div>");
+plus("<span>荒凉的星空下，一片沙滩上。。。。<br>一把微小的伞，似乎成为了整个苍穹的支柱，下面躺着的，是微笑的RP。。。<br>广袤的沙滩上一无所有，只有RP一人，他似乎在笑，但这笑，却又迷离、扑朔，真正地表现了他思想的复杂、无奈、对他人的失望和悲凉。</span>")
+plus("</div>")
+plus("<br>")
+plus("<div>");
+plus("<h1>欢迎来到RP的博客!</h1>");
+plus("<span>你可以访问下面的这个链接来了解RP朋友的网站</span>");
+plus("<a href='https://fmolin.top'>点击这里芜湖起飞</a>");
+plus("<br>");
+plus("<span>说实话本人没啥技术,就是做项目速度快</span>");
+plus("<br>");
+plus("<span>完了吧,就瞎想了个网名,叫RP,还蛮好记的</span>");
+plus("<br>");
+plus("<span>行了,知道我这个人(er)就行了,如果你看到这里了算你厉害</span>");plus("<br>");
+plus("<span>本页面使用fana.js和WGT相关技术制作</span>");
+plus("</div>");

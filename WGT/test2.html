@@ -1,0 +1,15 @@
+<img src="elm.png" id="a">
+<script>
+    var scaleValue = 1; 
+function shang(){ 
+    scaleValue+= 0.1;
+    document.getElementById(move_id).style.transform = "scale("+scaleValue+")"; 
+}
+function keyy(){
+    if(event.keyCode==65){
+        move_id="a";
+        shang();
+    }
+}
+document.onkeydown=keyy;
+</script>

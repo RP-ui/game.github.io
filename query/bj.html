@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>在下面的输入框中写入聊天内容</h1>
+        <textarea id="wr"></textarea>
+        <br>
+        <button onclick="aaa();">完成</button>
+        <br>
+        <div id="nr">
+
+        </div>
+        <script>
+            var gg=null;
+            function aaa(){
+                gg=encodeURI(document.URL+"?"+document.getElementById("wr").value);
+                document.getElementById("nr").innerHTML="结果:"+"<br>"+gg;
+            }
+        </script>
+    </body>
+</html>
