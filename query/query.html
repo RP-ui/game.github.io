@@ -2,19 +2,57 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <style>
+            .wk{
+                position:relative;
+                top:-20em;
+                left:20em;
+            }
+            button{
+                font-size:30px;
+                border-radius:50px;
+                border:none;
+                color:white;
+                background-color:lightgreen;
+                width:5em;
+                font-weight:10px;
+                position:relative;
+            }
+            button:hover{
+                top:-0.1em;
+                transition-duration:1s;
+                background-color:green;
+            }
+            button:active{
+                opacity:0.5;
+                transition-duration:0s;
+            }
+            textarea{
+          
+                border-radius:10px;
+                border:none;
+                color:white;
+                background-color:green;
+                font-weight:10px;
+                position:relative;
+            
+            }
+        </style>
     </head>
     <body>
+        <img src="elm.png">
         <script>
             if(document.URL.length>50){
             var aa=document.URL;
                 aa=aa.replace(/file:\/\/\/D:\/game\/find\/query\/query.html\?/g,"");//https://RP-ui.github.io/game.github.io/
-                aa=aa.replace(/https:\/\/RP-ui.github.io\/game.github.io\/query\/query.html\?/g,"");
-                aa=aa.replace(/http:\/\/RP-ui.github.io\/game.github.io\/query\/query.html\?/g,"");
-                aa=aa.replace(/RP-ui.github.io\/game.github.io\/query\/query.html\?/g,"");
-                document.write("<h1>上一次输入内容:</h1>"+decodeURI(aa));
+                aa=aa.replace(/https:\/\/rp-ui.github.io\/game.github.io\/query\/query.html\?/g,"");
+                aa=aa.replace(/http:\/\/rp-ui.github.io\/game.github.io\/query\/query.html\?/g,"");
+                aa=aa.replace(/rp-ui.github.io\/game.github.io\/query\/query.html\?/g,"");
+                document.write("<div style='position:relative;top:-10em;left:10em;'><h1>上一次输入内容:</h1>"+decodeURI(aa));
                 document.title="查看";
             }
         </script>
+        <div class="wk">
 
 <h1>在下面的输入框中写入聊天内容</h1>
 <textarea id="wr"></textarea>
@@ -26,10 +64,20 @@
 </div>
 <script>
     var gg=null;
+    var hh=Date();
+    hh=hh.replace(/GMT/g,"");
+    hh=hh.replace(/\+0800/g,"");
+    hh=hh.replace(/\(中国标准时间\)/g,"");
     function aaa(){
-        gg=encodeURI(document.URL+"?发布于:"+Date()+"<br>"+document.getElementById("wr").value+"<br>");
+        if(document.URL=="https://rp-ui.github.io/game.github.io/query/query.html"){
+        gg=encodeURI("https://rp-ui.github.io/game.github.io/query/query.html"+"?发布于:"+hh+"<br>"+document.getElementById("wr").value+"<br>");
         document.getElementById("nr").innerHTML="点击->查看聊天:"+"<br><a href='"+gg+"'>点击这里</a>";
+        }else{
+            gg=encodeURI("file:///D:/game/find/query/query.html"+"?发布于:"+hh+"<br>"+document.getElementById("wr").value+"<br>");
+        document.getElementById("nr").innerHTML="点击->查看聊天:"+"<br><a href='"+gg+"'>点击这里</a>";
+        }
     }
 </script>
-    </body>
+</div>
+</body>
 </html>
