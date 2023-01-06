@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            button{
+                background-color:green;
+                width:7em;
+                height:2em;
+                border:none;
+                border-radius:50px;
+                color:white;
+                font-size:30px;
+                font-weight:large;
+                transition-duration:1s;
+            }
+            button:hover{
+                opacity:0.8;
+                transition-duration:1s;
+            }
+            button:active{
+                opacity:0.5;
+                border:solid;
+                border-color:orange;
+                transition-duration:0s;
+            }
+            #big{
+                font-size:30px;
+            }
+            html{
+                color:rgb(78, 77, 77);
+                font-size:20px;
+            }
+            ::selection{
+                background-color:lightblue;
+                opacity:0.8;
+                color:white;
+            }
+            input{
+                font-size:30px;
+                border-radius:10px;
+                border:none;
+                color:white;
+                background-color:green;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="WGT.js"></script>
+ <img src="start-logo.png">
+ <h1 id="big">您的学习辅导专家</h1>
+ <a href="#work"><button>开始使用</button></a>
+<span style="position:relative;top:-17em;left:20em;">让更多的人,爱上学习
+<br>
+提供免费的,优质的,快捷的学习辅导服务</span>
+<br>
+<img src="took.png">
+<span>祝您使用愉快!!!</span>
+<br>
+<canvas width="0" height="1000"></canvas>
+<a name="work"></a>
+<div id="fs">
+分数运算<br>
+<br>
+分子:<input type="text" style="width:2em;" id="fz">
+<br>
+分母:<input type="text" style="width:2em;" id="fm">×
+<br>
+<hr>
+分子:<input type="text" style="width:2em;" id="fz2">
+<br>
+分母:<input type="text" style="width:2em;" id="fm2">
+<br>
+<br>
+<button onclick="fs();">运算</button>
+<br>
+<br>
+<br>
+<h1>是老师?没问题!</h1>
+<a href="query.html"><button>老师留作业</button></a>
+
+</div>
+
+<script>
+    function hh(){
+        if(screen.width<1280){
+            document.body.innerHTML=document.body.innerHTML+"<style>html{font-size:30px;}#fs{font-size:50px;}</style>"
+        }
+    }
+    hh();
+
+
+function fs(){
+    say("结果:"+Number(document.getElementById("fz").value/document.getElementById("fm").value)*Number(document.getElementById("fz2").value/document.getElementById("fm2").value));
+}
+</script>
+ </body>
+</html>

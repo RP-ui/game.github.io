@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            .wk{
+                position:relative;
+                top:-20em;
+                left:20em;
+            }
+            button{
+                font-size:30px;
+                border-radius:50px;
+                border:none;
+                color:white;
+                background-color:lightgreen;
+                width:5em;
+                font-weight:10px;
+                position:relative;
+            }
+            button:hover{
+                top:-0.1em;
+                transition-duration:1s;
+                background-color:green;
+            }
+            button:active{
+                opacity:0.5;
+                transition-duration:0s;
+            }
+            textarea{
+          
+                border-radius:10px;
+                border:none;
+                color:white;
+                background-color:green;
+                font-weight:10px;
+                position:relative;
+            
+            }
+        </style>
+    </head>
+    <body>
+        <img src="elm.png">
+        <script>
+                    if(document.URL.length>50){
+            var aa=document.URL;
+                aa=aa.replace(/file:\/\/\/D:\/game\/find\/query\/query.html\?/g,"");//https://RP-ui.github.io/game.github.io/
+                aa=aa.replace(/https:\/\/rp-ui.github.io\/game.github.io\/query\/query.html\?/g,"");
+                aa=aa.replace(/http:\/\/rp-ui.github.io\/game.github.io\/query\/query.html\?/g,"");
+                aa=aa.replace(/rp-ui.github.io\/game.github.io\/query\/query.html\?/g,"");
+                aa=aa.replace(/script/g,"***,包含违规字符,本次作业的作者可能有恶意,已被拦截");
+                aa=aa.replace(/php/g,"***,包含违规字符,本次作业的作者可能有恶意,已被拦截");
+                document.write("<div style='position:relative;top:-10em;left:10em;'><h1>作业内容:</h1>"+decodeURI(aa)+"<br><br>作业链接(可复制):<textarea cols='100'>"+document.URL+"</textarea>");
+                document.title="查看";
+            }
+
+
+            function hh(){
+                if(screen.width<1280){
+            document.body.innerHTML=document.body.innerHTML+"<style>html{font-size:30px;}</style>"
+                }
+            }
+            hh();
+        </script>
+        <div class="wk">
+<div id="aaa">
+<h1>在下面的输入框中写入作业内容</h1>
+<textarea id="wr" style="font-size:50px;"></textarea>
+<br>
+<button onclick="aaa();">生成链接</button>
+</div>
+<br>
+<div id="nr">
+
+</div>
+<script>
+    var gg=null;
+    var hh=Date();
+    hh=hh.replace(/GMT/g,"");
+    hh=hh.replace(/\+0800/g,"");
+    hh=hh.replace(/\(中国标准时间\)/g,"");
+    function aaa(){
+        gg="https://rp-ui.github.io/game.github.io/query/query.html"+"?发布于:"+hh+"<br>"+document.getElementById("wr").value+"<br>";
+    gg=gg.replace(/\n/g,"<br>");
+    gg=gg.replace(/script/g,"***");
+    gg=gg.replace(/php/g,"***");
+    gg=encodeURI(gg);
+         gg=document.getElementById("nr").innerHTML="点击->查看聊天:"+"<br><a href='"+gg+"'>点击这里</a>";
+        }
+
+
+
+
+
+        if(document.URL.length>50){
+            document.getElementById("aaa").innerHTML="";
+        }
+
+        
+    
+</script>
+</div>
+</body>
+</html>
