@@ -4,9 +4,10 @@
         <meta charset="UTF-8">
         <style>
             .wk{
-                position:relative;
+               /* position:relative;
                 top:-20em;
                 left:20em;
+                */
             }
             button{
                 font-size:30px;
@@ -37,12 +38,47 @@
                 position:relative;
             
             }
+            a{
+                font-size:30px;
+                color:white;
+                background-color:darkblue;
+            }
         </style>
     </head>
     <body>
-        <img src="elm.png">
+        <img src="elm.png" id="jjj">
+
+        <div class="wk">
+            <div id="aaa">
+            <h1>在下面的输入框中写入作业内容</h1>
+            <textarea id="wr" style="font-size:50px;"></textarea>
+            <br>
+            <button onclick="aaa();" id="btn">生成链接</button>
+            </div>
+            <br>
+            <div id="nr">
+            
+            </div>
+            </div>
         <script>
+
+function hhg(){
+                if(screen.width<1280){
+            document.body.style.fontSize="40px";
+            document.getElementById("jjj").width=500;
+            document.getElementById("btn").style.fontSize="70px";
+            document.getElementById("wr").style.width="20em";
+            document.getElementById("wr").style.height="10em";
+                if(document.getElementById("click")!=null){
+                    document.getElementById("click").style.fontSize="50px";
+                    document.getElementById("click-btn").style.fontSize="50px";
+                }
+            }
+        }
+
+
                     if(document.URL.length>54){
+                    hhg();
             var aa=document.URL;
                 aa=aa.replace(/file:\/\/\/D:\/game\/find\/query\/query.html\?/g,"");//https://RP-ui.github.io/game.github.io/
                 aa=aa.replace(/https:\/\/rp-ui.github.io\/game.github.io\/query\/query.html\?/g,"");
@@ -55,25 +91,10 @@
             }
 
 
-            function hh(){
-                if(screen.width<1280){
-            document.body.innerHTML=document.body.innerHTML+"<style>html{font-size:30px;}</style>"
-                }
-            }
-            hh();
+            hhg();
         </script>
-        <div class="wk">
-<div id="aaa">
-<h1>在下面的输入框中写入作业内容</h1>
-<textarea id="wr" style="font-size:50px;"></textarea>
-<br>
-<button onclick="aaa();">生成链接</button>
-</div>
-<br>
-<div id="nr">
-
-</div>
 <script>
+    alert(document.URL.length);
     var gg=null;
     var hh=Date();
     hh=hh.replace(/GMT/g,"");
@@ -85,8 +106,9 @@
     gg=gg.replace(/script/g,"***");
     gg=gg.replace(/php/g,"***");
     gg=encodeURI(gg);
-         gg=document.getElementById("nr").innerHTML="点击->查看聊天:"+"<br><a href='"+gg+"'>点击这里</a>";
-        }
+         gg=document.getElementById("nr").innerHTML="<div id='click'>点击->查看作业链接:"+"<br><a href='"+gg+"' id='click-btn'>点击这里</a></div>";
+         hhg();
+    }
 
 
 
@@ -99,6 +121,5 @@
         
     
 </script>
-</div>
 </body>
 </html>
