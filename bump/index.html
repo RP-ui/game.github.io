@@ -20,6 +20,29 @@
 function styleClear(){
     document.getElementById("fana_style").innerHTML="";
 }
+var sss=0;
+var xxx=0;
+var zzza=0;
+var yyy=0;
+var aaaaa=false;
+
+function jjjg(){
+    if(aaaaa==false){
+        aaaaa=true;
+    }else{
+            if(sss+xxx+zzza+yyy<20){
+                alert("你完犊子了!!!");
+                location.reload();
+            }else{ 
+                sss=0;
+                xxx=0;
+                zzza=0;
+                yyy=0;
+            }
+    }
+    setTimeout(jjjg,10000);
+}
+jjjg();
         </script>
         <div id="sprite">
 
@@ -32,10 +55,10 @@ function styleClear(){
             <img src="img/trangle.png" width="200" id="trangle1Pic" onClick="point();">
         </div>
         <div id="sj">
-            <img src="img/s.png"style="position:relative;left:5em;" id="sj-s" onClick="javascript:y__('spriteI',-50);">
-            <img src="img/s.png" style="transform:rotate(180deg);position:relative;top:10em;left:-8em;" id="sj-x" onClick="javascript:y__('spriteI',50);">
-            <img src="img/s.png" style="transform:rotate(-90deg);position:relative;top:10em;left:-32em;" id="sj-z" onClick="javascript:x__('spriteI',-50);">
-            <img src="img/s.png" style="transform:rotate(90deg);position:relative;top:10em;left:-28em;" id="sj-y" onClick="javascript:x__('spriteI',50);">
+            <img src="img/s.png"style="position:relative;left:5em;" id="sj-s" onClick="javascript:y__('spriteI',-50);sss=sss+1;">
+            <img src="img/s.png" style="transform:rotate(180deg);position:relative;top:10em;left:-8em;" id="sj-x" onClick="javascript:y__('spriteI',50);xxx=xxx+1;">
+            <img src="img/s.png" style="transform:rotate(-90deg);position:relative;top:10em;left:-32em;" id="sj-z" onClick="javascript:x__('spriteI',-50);zzza=zzza+1;">
+            <img src="img/s.png" style="transform:rotate(90deg);position:relative;top:10em;left:-28em;" id="sj-y" onClick="javascript:x__('spriteI',50);yyy=yyy+1;">
         </div>
     
         <style>
@@ -190,46 +213,35 @@ function styleClear(){
                     setTimeout("x__('trangle1',10)",300);
                     setTimeout("x__('trangle1',10)",400);
                     setTimeout("x__('trangle1',10)",500);
-                    setTimeout("y__('trangle1',10)",600);
-                    setTimeout("y__('trangle1',10)",700);
                     setTimeout("x__('trangle1',10)",800);
                     setTimeout("x__('trangle1',10)",900);
                     setTimeout("x__('trangle1',20)",1000);
                     setTimeout("x__('trangle1',10)",1100);
-                    setTimeout("y__('trangle1',10)",1200);
-                    setTimeout("y__('trangle1',10)",1300);
-                    setTimeout("y__('trangle1',10)",1400);
-                    setTimeout("y__('trangle1',10)",1500);
-                    setTimeout("y__('trangle1',10)",1600);
-                    setTimeout("y__('trangle1',10)",1700);
+                    setTimeout("x__('trangle1',10)",1200);
+                    setTimeout("x__('trangle1',10)",1300);
+                    setTimeout("x__('trangle1',20)",1400);
+                    setTimeout("x__('trangle1',10)",1500);
+                    setTimeout("x__('trangle1',10)",1600);
+                    setTimeout("x__('trangle1',20)",1700);
                     setTimeout("x__('trangle1',10)",1800);
-                    setTimeout("x__('trangle1',10)",1900);
+                    setTimeout("x__('trangle1',30)",1900);
                     setTimeout("x__('trangle1',20)",2000);
-                    setTimeout("x__('trangle1',10)",2100);
-                    setTimeout("x__('trangle1',10)",2200);
-                    setTimeout("x__('trangle1',20)",2300);
-                    setTimeout("x__('trangle1',10)",2400);
-                    setTimeout("x__('trangle1',30)",2500);
-                    setTimeout("x__('trangle1',20)",2600);
+                    setTimeout("x__('trangle1',50)",2100);
+                    setTimeout("x__('trangle1',50)",2200);
+                    setTimeout("x__('trangle1',50)",2300);
+                    setTimeout("x__('trangle1',50)",2400);
+                    setTimeout("x__('trangle1',50)",2500);
+                    setTimeout("x__('trangle1',50)",2600);
                     setTimeout("x__('trangle1',50)",2700);
                     setTimeout("x__('trangle1',50)",2800);
-                    setTimeout("y__('trangle1',10)",2900);
-                    setTimeout("y__('trangle1',20)",3000);
-                    setTimeout("y__('trangle1',30)",3100);
-                    setTimeout("y__('trangle1',50)",3200);
+                    setTimeout("x__('trangle1',50)",2900);
+                    setTimeout("x__('trangle1',50)",3000);
+                    setTimeout("x__('trangle1',50)",3100);
+                    setTimeout("x__('trangle1',50)",3200);
                     setTimeout("x__('trangle1',50)",3300);
                     setTimeout("x__('trangle1',50)",3400);
                     setTimeout("x__('trangle1',50)",3500);
                     setTimeout("x__('trangle1',50)",3600);
-                    setTimeout("x__('trangle1',50)",3700);
-                    setTimeout("x__('trangle1',50)",3800);
-                    setTimeout("y__('trangle1',50)",3900);
-                    setTimeout("y__('trangle1',60)",4000);
-                    setTimeout("y__('trangle1',70)",4100);
-                    setTimeout("y__('trangle1',10)",4200);
-                    setTimeout("y__('trangle1',20)",4300);
-                    setTimeout("y__('trangle1',30)",4400);
-                    setTimeout("y__('trangle1',50)",4500);
                     setTimeout("hide('trangle1');trangle1H=false;ppp=Number(String(Math.random()).charAt(4));",4600);
                 }
 
@@ -243,20 +255,6 @@ function styleClear(){
                     setTimeout("x__('trangle1',20)",300);
                     setTimeout("x__('trangle1',50)",400);
                     setTimeout("x__('trangle1',50)",500);
-                    setTimeout("y__('trangle1',30)",600);
-                    setTimeout("y__('trangle1',30)",700);
-                    setTimeout("y__('trangle1',50)",800);
-                    setTimeout("y__('trangle1',50)",900);
-                    setTimeout("y__('trangle1',50)",1000);
-                    setTimeout("y__('trangle1',-50)",1100);
-                    setTimeout("y__('trangle1',-30)",1200);
-                    setTimeout("y__('trangle1',30)",1300);
-                    setTimeout("y__('trangle1',50)",1400);
-                    setTimeout("y__('trangle1',40)",1500);
-                    setTimeout("y__('trangle1',50)",1600);
-                    setTimeout("y__('trangle1',40)",1700);
-                    setTimeout("y__('trangle1',50)",1800);
-                    setTimeout("y__('trangle1',50)",1900);
                     setTimeout("hide('trangle1');trangle1H=false;ppp=Number(String(Math.random()).charAt(4));",2000);
                 }
             }
@@ -270,7 +268,6 @@ function styleClear(){
                 setTimeout(zzz,0);
             }
             zzz();
-
             function point(){
              hide("trangle1");
              pointt=pointt+1;
@@ -279,6 +276,7 @@ function styleClear(){
             document.onkeydown=keyy;
 
            document.body.style.overflow='hidden';
+
         </script>
     </body>
 </html>
