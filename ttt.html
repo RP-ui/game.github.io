@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            button{
+                 border-radius:10px;
+                 font-size:30px;
+                 background-color:white;
+                 border:solid;
+            
+                    }
+                    
+                div{
+                    border-radius:10px;
+                    border:solid;
+                    border-color:lightgrey;
+                }
+                </style>
+    </head>
+    <body>
+        <div>
+        <h1>在开始游戏之前，我们需要获取您的权限供我们统计游戏信息。</h1>
+        <h1>您需要同意我们获取您的设备信息，和对您的信息进行返回，此过程不会对您的设备造成任何危害。</h1>
+       <button onClick="fx();">同意</button>&#160;&#160;&#160;<a href="javascript:document.write('<h1>您拒绝了我们的请求，无法继续</h1>');"><button>我不同意，谢谢</button></a>
+        </div>
+        <script>
+            function fx(){
+                if(screen.width<screen.height){
+                    document.write("<a href='https://rb27387079-7.icoc.ws/' style='font-size:50px;'>开始游戏</a>");
+                }else{
+                    document.write("<a href='https://rb27387079-8.icoc.ws/' style='font-size:50px;'>开始游戏</a>");
+                }
+            }
+        </script>
+    </body>
+</html>
