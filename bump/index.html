@@ -42,6 +42,9 @@ function styleClear(){
             html{
                 background:url(img/bg.png);
             }
+            ::selection{
+                background:none;
+            }
             #point{
                 background-color:black;
                 opacity:0.6;
@@ -55,6 +58,8 @@ function styleClear(){
 
            #sj{
             opacity:0.6;
+            position: relative;
+            top:10em;
            }
            #sj:active{
             opacity:0.3;
@@ -269,7 +274,7 @@ function styleClear(){
             function point(){
              hide("trangle1");
              pointt=pointt+1;
-             document.getElementById("spriteI").width=document.getElementById("spriteI").width+1;
+             document.getElementById("spriteI").width=document.getElementById("spriteI").width+pointt/2;
             }
             document.onkeydown=keyy;
 
