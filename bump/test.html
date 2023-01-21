@@ -1,0 +1,43 @@
+<img src="img/sprite1.png" id="A" style="position:absolute;">
+<img src="img/sprite2.png" id="B" style="position:absolute;">
+<script>    
+            a=65; b=66; c=67; d=68; e=69; f=70; g=71; h=72; i=73; j=74; k=75; l=76; m=77; n=78; o=79; p=80; q=81; r=82; s=83; t=84; u=85; v=86; w=87; x=88; y=89; z=90; N1=97; N2=98; N0=96; N3=99; N4=100; N5=101; N6=102; N7=103; N8=104; N9=105; star=106; Plus=107; Enter=108; unPlus=109; dot=110; slash=111; F1=112; F2=113; F3=114; F4=115; F5=116; F6=117; F7=118; F8=119; F9=120; F10=121; F11=122; F12=123;
+
+            function x__(a,b){
+                document.getElementById(a).style.left = document.getElementById(a).offsetLeft+b+'px';
+            }
+            function y__(a,b){
+                document.getElementById(a).style.top = document.getElementById(a).offsetTop+b+'px';
+            }
+e="A";
+b="B";
+                var Ay=document.getElementById(e).offsetTop;
+                var By=document.getElementById(b).offsetTop;
+                var Ax=document.getElementById(e).offsetLeft;
+                var Bx=document.getElementById(b).offsetLeft;
+                var Bw=document.getElementById(b).width;
+                var Bh=document.getElementById(b).height;
+                var Aw=document.getElementById(e).width;
+                var Ah=document.getElementById(e).height;
+
+                function hhh(){
+                    if(Ay+Ah>By&&Ax+Aw>Bx&&Ax-Aw<Bx+Bw&&Ay<By+Bh){onAtt=true;}else{onAtt=false;};if(onAtt==true){alert('a')};
+                     setTimeout(hhh,1);
+                }
+                hhh();
+    function keyy(){
+        if(event.keyCode==a){
+            x__("A",-50)
+        }
+        if(event.keyCode==d){
+            x__("A",50)
+        }
+        if(event.keyCode==w){
+            y__("A",50)
+        }
+        if(event.keyCode==s){
+            y__("A",-50)
+        }
+    }
+    document.onkeydown=keyy;
+</script>

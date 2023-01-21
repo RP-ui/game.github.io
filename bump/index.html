@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script>
+                        function x__(a,b){
+                document.getElementById(a).style.left = document.getElementById(a).offsetLeft+b+'px';
+            }
+            function y__(a,b){
+                document.getElementById(a).style.top = document.getElementById(a).offsetTop+b+'px';
+            }
+        </script>
+    </head>
+    <body>
+        <script>
+            document.write("<div id='fana_style'></div>");
+            function rotate(a,b){
+    document.getElementById("fana_style").innerHTML=document.getElementById("fana_style").innerHTML+"<style>#"+a+"{transform:rotate("+b+"deg)}</style>";
+}
+function styleClear(){
+    document.getElementById("fana_style").innerHTML="";
+}
+        </script>
+        <div id="sprite">
+
+        </div>
+        <div id="point">
+            <h1>分数表</h1>
+            <span id="point_number">分数:0</span>
+        </div>
+        <div id="trangle1" style="position:absolute;">
+            <img src="img/trangle.png" width="200" id="trangle1Pic" onClick="point();">
+        </div>
+        <div id="sj">
+            <img src="img/s.png"style="position:relative;left:5em;" id="sj-s" onClick="javascript:y__('spriteI',-50);">
+            <img src="img/s.png" style="transform:rotate(180deg);position:relative;top:10em;left:-8em;" id="sj-x" onClick="javascript:y__('spriteI',50);">
+            <img src="img/s.png" style="transform:rotate(-90deg);position:relative;top:10em;left:-32em;" id="sj-z" onClick="javascript:x__('spriteI',-50);">
+            <img src="img/s.png" style="transform:rotate(90deg);position:relative;top:10em;left:-28em;" id="sj-y" onClick="javascript:x__('spriteI',50);">
+        </div>
+    
+        <style>
+            html{
+                background:url(img/bg.png);
+            }
+            #point{
+                background-color:black;
+                opacity:0.6;
+                color:white;
+                border-radius:10px;
+                border:none;
+                font-size:20px;
+                width:10em;
+                height:6em;
+            }
+
+           #sj{
+            opacity:0.6;
+           }
+           #sj:active{
+            opacity:0.3;
+           }
+        </style>
+        <script>
+            a=65; b=66; c=67; d=68; e=69; f=70; g=71; h=72; i=73; j=74; k=75; l=76; m=77; n=78; o=79; p=80; q=81; r=82; s=83; t=84; u=85; v=86; w=87; x=88; y=89; z=90; N1=97; N2=98; N0=96; N3=99; N4=100; N5=101; N6=102; N7=103; N8=104; N9=105; star=106; Plus=107; Enter=108; unPlus=109; dot=110; slash=111; F1=112; F2=113; F3=114; F4=115; F5=116; F6=117; F7=118; F8=119; F9=120; F10=121; F11=122; F12=123;
+            var pifu=Number(String(Math.random()).charAt(4));
+            var pointt=0;
+            if(pifu==3){
+                document.getElementById("sprite").innerHTML="<img src='img/sprite1.png' width='150' style='position:absolute;left:30em;top:7em;' id='spriteI'>";
+            }
+            if(pifu==2){
+                document.getElementById("sprite").innerHTML="<img src='img/sprite1.png' width='150' style='position:absolute;left:30em;top:7em;' id='spriteI'>";
+            }
+            if(pifu==5){
+                document.getElementById("sprite").innerHTML="<img src='img/sprite2.png' width='150' style='position:absolute;left:30em;top:7em;' id='spriteI'>";
+            }
+            if(pifu==4){
+                document.getElementById("sprite").innerHTML="<img src='img/sprite2.png' width='150' style='position:absolute;left:30em;top:7em;' id='spriteI'>";
+            }
+            if(pifu==1){
+                document.getElementById("sprite").innerHTML="<img src='img/sprite2.png' width='150' style='position:absolute;left:30em;top:7em;' id='spriteI'>";
+            }
+            if(pifu==8){
+                document.getElementById("sprite").innerHTML="<img src='img/sprite3.png' width='150' style='position:absolute;left:30em;top:7em;' id='spriteI'>";
+            }
+            if(pifu==0){
+                document.getElementById("sprite").innerHTML="<img src='img/sprite3.png' width='150' style='position:absolute;left:30em;top:7em;' id='spriteI'>";
+            }
+            if(pifu==6){
+                document.getElementById("sprite").innerHTML="<img src='img/sprite4.png' width='150' style='position:absolute;left:30em;top:7em;' id='spriteI'>";
+            }
+            if(pifu==7){
+                document.getElementById("sprite").innerHTML="<img src='img/sprite4.png' width='150' style='position:absolute;left:30em;top:7em;' id='spriteI'>";
+            }
+
+            
+            function keyy(){
+                if(event.keyCode==a){
+                    x__("spriteI",-50);
+                }
+                if(event.keyCode==d){
+                    x__("spriteI",50);
+                }
+                if(event.keyCode==w){
+                    y__("spriteI",-50);
+                }
+                if(event.keyCode==s){
+                    y__("spriteI",50);
+                }
+            }
+            
+            
+            var onAtt=false;
+
+            function onAt(a,b){
+                var Ay=document.getElementById(a).offsetTop;
+                var By=document.getElementById(b).offsetTop;
+                var Ax=document.getElementById(a).offsetLeft;
+                var Bx=document.getElementById(b).offsetLeft;
+                var Bw=document.getElementById(b).width;
+                var Bh=document.getElementById(b).height;
+                var Aw=document.getElementById(a).width;
+                var Ah=document.getElementById(a).height;
+                  /*  if(By-Ay<1&&Ax+Aw>Bx&&Ax<Bx+Bw&&Ay>By&&Ay<By+Bh){
+                        onAtt=true;
+                    }else{
+                       onAtt=false;
+                    }
+                    
+
+
+                       /* if(Ay+Ah>By&&Ax+Aw>Bx&&Ax-Aw<Bx+Bw&&Ay<By+Bh){
+                        onAtt=true;
+                        }else{
+                            onAtt=false;
+                        }
+                        */
+                   
+                }
+                
+
+
+                function hide(a){
+                    document.getElementById(a).style.top=-99+"em"
+                }
+                function visitly(a){
+                    document.getElementById(a).style.top=0+"em";
+                    document.getElementById(a).style.left=0+"em";
+                }
+
+               hide("trangle1");
+
+                var a_r=0;
+                function rrc(){
+                styleClear();
+                setTimeout(rrc,1000);
+                }
+                rrc();
+            
+            function rr(){
+                a_r=a_r+5;
+                if(a_r>360){
+                    a_r=0;
+                }
+                rotate("trangle1",a_r);
+                setTimeout(rr,10);
+            }
+            rr();
+
+            var trangle1H=false;
+            var ppp;
+            var trangleW;
+            function move(){
+                ppp=Number(String(Math.random()).charAt(4));
+                trangleW=Number(String(Math.random()).charAt(4))*Number(String(Math.random()).charAt(4))*10;
+                var A=document.getElementById("trangle1");
+                if(trangle1H==false){
+                   
+                if(ppp==1){
+                    trangle1H=true;
+                    visitly("trangle1");
+                    document.getElementById("trangle1Pic").width=trangleW;
+                    A.style.top = A.offsetTop+Number(String(Math.random()).charAt(4))*10+"px";
+                    setTimeout("x__('trangle1',10)",100);
+                    setTimeout("x__('trangle1',10)",200);
+                    setTimeout("x__('trangle1',10)",300);
+                    setTimeout("x__('trangle1',10)",400);
+                    setTimeout("x__('trangle1',10)",500);
+                    setTimeout("y__('trangle1',10)",600);
+                    setTimeout("y__('trangle1',10)",700);
+                    setTimeout("x__('trangle1',10)",800);
+                    setTimeout("x__('trangle1',10)",900);
+                    setTimeout("x__('trangle1',20)",1000);
+                    setTimeout("x__('trangle1',10)",1100);
+                    setTimeout("y__('trangle1',10)",1200);
+                    setTimeout("y__('trangle1',10)",1300);
+                    setTimeout("y__('trangle1',10)",1400);
+                    setTimeout("y__('trangle1',10)",1500);
+                    setTimeout("y__('trangle1',10)",1600);
+                    setTimeout("y__('trangle1',10)",1700);
+                    setTimeout("x__('trangle1',10)",1800);
+                    setTimeout("x__('trangle1',10)",1900);
+                    setTimeout("x__('trangle1',20)",2000);
+                    setTimeout("x__('trangle1',10)",2100);
+                    setTimeout("x__('trangle1',10)",2200);
+                    setTimeout("x__('trangle1',20)",2300);
+                    setTimeout("x__('trangle1',10)",2400);
+                    setTimeout("x__('trangle1',30)",2500);
+                    setTimeout("x__('trangle1',20)",2600);
+                    setTimeout("x__('trangle1',50)",2700);
+                    setTimeout("x__('trangle1',50)",2800);
+                    setTimeout("y__('trangle1',10)",2900);
+                    setTimeout("y__('trangle1',20)",3000);
+                    setTimeout("y__('trangle1',30)",3100);
+                    setTimeout("y__('trangle1',50)",3200);
+                    setTimeout("x__('trangle1',50)",3300);
+                    setTimeout("x__('trangle1',50)",3400);
+                    setTimeout("x__('trangle1',50)",3500);
+                    setTimeout("x__('trangle1',50)",3600);
+                    setTimeout("x__('trangle1',50)",3700);
+                    setTimeout("x__('trangle1',50)",3800);
+                    setTimeout("y__('trangle1',50)",3900);
+                    setTimeout("y__('trangle1',60)",4000);
+                    setTimeout("y__('trangle1',70)",4100);
+                    setTimeout("y__('trangle1',10)",4200);
+                    setTimeout("y__('trangle1',20)",4300);
+                    setTimeout("y__('trangle1',30)",4400);
+                    setTimeout("y__('trangle1',50)",4500);
+                    setTimeout("hide('trangle1');trangle1H=false;ppp=Number(String(Math.random()).charAt(4));",4600);
+                }
+
+                if(ppp==2){
+                    trangle1H=true;
+                    visitly("trangle1");
+                    document.getElementById("trangle1Pic").width=trangleW;
+                    A.style.top = A.offsetTop+Number(String(Math.random()).charAt(4))*15+"px";
+                    setTimeout("x__('trangle1',20)",100);
+                    setTimeout("x__('trangle1',20)",200);
+                    setTimeout("x__('trangle1',20)",300);
+                    setTimeout("x__('trangle1',50)",400);
+                    setTimeout("x__('trangle1',50)",500);
+                    setTimeout("y__('trangle1',30)",600);
+                    setTimeout("y__('trangle1',30)",700);
+                    setTimeout("y__('trangle1',50)",800);
+                    setTimeout("y__('trangle1',50)",900);
+                    setTimeout("y__('trangle1',50)",1000);
+                    setTimeout("y__('trangle1',-50)",1100);
+                    setTimeout("y__('trangle1',-30)",1200);
+                    setTimeout("y__('trangle1',30)",1300);
+                    setTimeout("y__('trangle1',50)",1400);
+                    setTimeout("y__('trangle1',40)",1500);
+                    setTimeout("y__('trangle1',50)",1600);
+                    setTimeout("y__('trangle1',40)",1700);
+                    setTimeout("y__('trangle1',50)",1800);
+                    setTimeout("y__('trangle1',50)",1900);
+                    setTimeout("hide('trangle1');trangle1H=false;ppp=Number(String(Math.random()).charAt(4));",2000);
+                }
+            }
+            setTimeout(move,Number(String(Math.random()).charAt(4))*10);
+            }
+            move();
+
+
+            function zzz(){
+                document.getElementById("point_number").innerHTML="分数:"+pointt;
+                setTimeout(zzz,0);
+            }
+            zzz();
+
+            function point(){
+             hide("trangle1");
+             pointt=pointt+1;
+             document.getElementById("spriteI").width=document.getElementById("spriteI").width+1;
+            }
+            document.onkeydown=keyy;
+
+           document.body.style.overflow='hidden';
+        </script>
+    </body>
+</html>
