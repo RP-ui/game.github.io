@@ -3,6 +3,7 @@
         <meta charset="UTF-8">
     </head>
     <body>
+
         <div id="head-block">
             <span id="web-ico">
             </span>
@@ -13,7 +14,8 @@
         </div>
         <nav>
             <a href="#start"><button class="nav-btn">首页</button></a>
-            <a href="#lz"><button class="nav-btn" style="color:yellow;">乐子专区</button></a>
+          <a href="#lz"><button class="nav-btn" style="color:yellow;"> <div id="lz-btn"> 乐子专区</div></button></a>
+            <a href="#find"><button class="nav-btn"><div id="find-btn">探索发现</div></button></a>
         </nav>
         <div id="and1">
             <div id="and1-ico">
@@ -39,11 +41,13 @@
             OCTER<img src="img/OCTER.png" class="head-pic">
             网络爆破队<img src="img/int-cio.png" class="head-pic">
         </div>
-        <h1 style="color:yellow;">乐子专区</h1>
-        <a name="lz"></a>
-        <div class="and-say">
-            <h1>目录</h1>
-            <span class="lz-rd">热点:</span><a class="a" href="#lz-wuz">wuzzep随意嘲讽他人事件</a>
+        <div id="lz-zq">
+            <h1 style="color:yellow;">乐子专区</h1>
+            <a name="lz"></a>
+            <div class="and-say">
+                <h1>目录</h1>
+                <span class="lz-rd">热点:</span><a class="a" href="#lz-wuz">wuzzep随意嘲讽他人事件</a>
+        </div>
         </div>
         <div id="lz-wuz">
                 <h1 class="lz-rd">热点:wuzzep随意嘲讽本委会官网为"笑话"</h1>
@@ -95,6 +99,22 @@
                     (全文终)<br>
                     <br>
                     更新于:2023/1/22
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>                    <br>
+        <br>
+        <br>
+        <br>
+        <a name="find"></a>
+        <div id="find">
+            <h1>探索发现</h1>
+            <div class="and-say">
+                关于参与中社,强大委会<br>
+                我们需要招聘人马,用报酬让招聘来的人为我们工作或者是做出贡献<br>
+                <h1 class="lz-rd">此部分为机密部分,即使你看到了,也不要做不适当的宣传!</h1>
+            </div>
         </div>
         
 <style>
@@ -193,6 +213,14 @@ gx();
 function ck(){
     document.write("<a href='view-source:"+document.URL+"' style='font-size:50px;'>查看源代码</a>");
 }
+            if(RegExp(/cn/).test(document.URL)==true){
+                document.getElementById("lz-btn").innerHTML="";
+                document.getElementById("lz-wuz").innerHTML="";
+                document.getElementById("lz-zq").innerHTML="";
+                document.getElementById("find").innerHTML="";
+                document.getElementById("find-btn").innerHTML="";
+            }
+            
 </script>
 </body>
 <br>
