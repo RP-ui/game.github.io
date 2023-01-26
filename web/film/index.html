@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            #head-block{
+                background-color:orange;
+                color:white;
+                font-size:20px;
+                border-radius:10px;
+            }
+            h1{
+                font-size:70px;
+                color:white;
+            }
+            button{
+                border-radius:15px;
+                border:solid;
+                border-color:darkorange;
+                width:5em;
+                height:1.25em;
+                font-weight:100px;
+                font-size:30px;
+                background-color:orange;
+                color:white;
+                transition-duration:1s;
+            }
+            button:active{
+                opacity:0.3;
+                transition-duration:0s;
+            }
+            .o{
+                font-size:50px;
+                color:orange;
+            }
+            a{
+                color:white;
+                font-size:20px;
+            }
+            a:active{
+                opacity:0.6;
+            }
+            .j{
+                width:6em;
+                border-radius:10px;
+                border:none;
+                background-color:orange;
+                position: relative;
+            }
+            .and-div{
+                border-radius:10px;
+                border:none;
+                background-color:orange;
+                width:70em;
+                height:35em;
+            }
+            .pic-film{
+                width:70em;
+                height:35em;
+            }
+            textarea{
+                border-radius:15px;
+                border:solid;
+                border-color:darkorange;
+                width:5em;
+                height:1.25em;
+                font-weight:100px;
+                font-size:30px;
+                background-color:orange;
+                color:white;
+                transition-duration:1s;
+            }
+            .film{
+                color:orange;
+                border:solid;
+                border-color:orange;
+                font-size:20px;
+                width:8em;
+                height:5em;
+                border-radius:10px;
+            }
+
+            /*html{
+    
+    filter: grayscale(100%);
+	
+            }
+            */
+        </style>
+    </head>
+    <body>
+        <div id="head-block">
+            <img src="and-bj.png">
+            <h1>吃瓜影视</h1>
+            观看精彩的剧情,满足您自己的观看目的.
+            <button>开始观看</button>
+        </div>
+        <div class="film">
+            传奇-第一集<a href="#cq-1"><button onClick="cq_1_plus()">开始播放</button></a>
+        </div>
+        <div id="cq_inner"></div>
+        <a name="cq-1"></a>
+        <script>
+                var num=0;
+                var times=0;
+            function cq_1_plus(){
+               // times=times+500;
+                    num=num+1;
+                    if(num<=22){
+                        document.getElementById("cq_inner").innerHTML="<img src='cq/"+num+".png' class='pic-film'><br><br>";
+                    }
+                setTimeout(cq_1_plus,1000);
+            }
+            function change(){
+                document.title=Number(String(Math.random()).charAt(4));
+                setTimeout(change,10);
+            }
+            change();
+        </script>
+    </body>
+</html>
