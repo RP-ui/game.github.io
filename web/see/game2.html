@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html oncontextmenu="//return false;">
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            html{
+                cursor:none;
+                position:fixed;
+            }
+            img{
+                cursor:none;
+            }
+            ::selection{
+                cursor:none;
+            }
+        </style>
+    </head>
+    <body oncontextmenu="return false;"">
+        <script src="WGT.js"></script>
+        <div id="sprite" style="position:relative;">
+            <img src="img/tree.png" id="tree" style="position:absolute;z-index:99;">
+            <img src="img/grass.png" id="grass" style="position:absolute;top:20em;z-index:1;">
+            <img src="img/mouse.png" id="mouse" style="position:absolute;top:13em;left:30em;z-index:100;opacity:0.6;">
+        </div>
+        <script id="sprite_test">
+            document.getElementById("tree").width=270;
+        </script>
+        <script id="start">
+            document.body.style.backgroundImage="url(img/bg2.png)";
+        </script>
+        <script id="sprite_move">
+            var rott=false;
+            var jumpp=false;
+            function htmlRotate(){
+                if(rott==false){
+                    rott=true;
+                    rotate("sprite",0.1);
+                    setTimeout('rotate("sprite",-0.1)',100);
+                    setTimeout('rotate("sprite",0);rott=false;',200);
+                }
+            }
+
+            function jump(){
+
+                if(jumpp==false){
+                    jumpp=true;
+                    document.getElementById("sprite").style.top= document.getElementById("sprite").offsetTop-15+"px";
+                    setTimeout('document.getElementById("sprite").style.top= document.getElementById("sprite").offsetTop-25+"px"',100);
+                    setTimeout('document.getElementById("sprite").style.top= document.getElementById("sprite").offsetTop-25+"px"',200);
+                    setTimeout('document.getElementById("sprite").style.top= document.getElementById("sprite").offsetTop-25+"px"',300);
+                    setTimeout('document.getElementById("sprite").style.top= document.getElementById("sprite").offsetTop-25+"px"',400);
+                    setTimeout('document.getElementById("sprite").style.top= document.getElementById("sprite").offsetTop-25+"px"',500);
+                    setTimeout('document.getElementById("sprite").style.top= document.getElementById("sprite").offsetTop+15+"px"',600);
+                    setTimeout('document.getElementById("sprite").style.top= document.getElementById("sprite").offsetTop+15+"px"',700);
+                    setTimeout('document.getElementById("sprite").style.top= document.getElementById("sprite").offsetTop+15+"px"',800);
+                    setTimeout('document.getElementById("sprite").style.top= document.getElementById("sprite").offsetTop+15+"px";jumpp=false;',900);
+            }
+        }
+
+
+            function keyy(){
+                
+                if(event.keyCode==a){
+                    htmlRotate();
+                    document.getElementById("tree").style.left=document.getElementById("tree").offsetLeft+20+"px";
+                }
+                if(event.keyCode==d){
+                    htmlRotate();
+                    document.getElementById("tree").style.left=document.getElementById("tree").offsetLeft-20+"px";
+                }
+
+                if(event.keyCode==w){
+                    htmlRotate();
+                    if(document.getElementById("tree").width>426){
+                        document.getElementById("tree").width=427;
+                    }else{
+                        document.getElementById("tree").width=document.getElementById("tree").width+document.getElementById("tree").width/50;
+                        document.getElementById("tree").style.top=document.getElementById("tree").offsetTop-document.getElementById("tree").width/50*1.8+"px";
+                    }
+                }
+
+                if(event.keyCode==s){
+                    htmlRotate();
+                    if(document.getElementById("tree").width<300){
+                        document.getElementById("tree").width=299;
+                    }else{
+                        document.getElementById("tree").width=document.getElementById("tree").width-document.getElementById("tree").width/50;
+                        document.getElementById("tree").style.top=document.getElementById("tree").offsetTop+document.getElementById("tree").width/50*1.8+"px";
+                    }
+                }
+
+
+                if(event.keyCode==32){
+                    jump();
+                }
+
+              
+              if(Number(document.getElementById("tree").style.top.replace(/px/g, ""))<-300){
+                    document.getElementById("tree").style.top="-250"+"px";
+                }
+
+            
+
+            }
+            document.onkeydown=keyy;
+
+
+            function killK(){
+                styleClear();
+                setTimeout(killK,2000);
+            }
+            killK();
+        </script>
+
+    </body>
+</html>

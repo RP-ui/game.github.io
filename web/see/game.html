@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body oncontextmenu="javascript:return false;">
+        <script src="WGT.js"></script>
+        <div><img src="img/river_tree.png" width="200" id="tree_1" style="z-index:99;"></div>
+        <div><img src="img/tree_2.png" width="200" id="tree_2" style="z-index:97;"></div>
+        <div><img src="img/place_bg_1.png" width="200" id="place_1"></div>
+        <div><img src="img/place_bg_2.png" width="200" id="place_2"></div>
+        <div id="sprite_move">
+            
+        </div>
+        <script id="sprite_start">   
+            zz="fana_id";
+            fana("tree_1");
+            _.style.position="absolute";
+            _.width=0;
+            fana("tree_2");
+            _.style.position="absolute";
+            _.width=0;
+            fana("place_1");
+            _.style.position="absolute";
+            _.width=0;
+            fana("place_2");
+            _.style.position="absolute";
+            _.width=0;
+        </script>
+            <script id="seed">
+                var seed=Number(String(Math.random()).charAt(4));
+                for(var seed_times=0;seed_times<=10;seed_times++){
+                    seed=String(seed)+Number(String(Math.random()).charAt(4));
+                }
+               // seed="8009319";
+               //seed="832923855079";
+              //seed="819836852190";
+              //seed="011545252855";
+              //seed="850342907748";
+              //seed="827452372833";
+              //seed="247102558033";
+              //seed=  "888888888888";
+              //seed=    "854188541885";
+              //seed="824911484681";
+
+              //seed="842932316503";
+
+              //seed="824600916390";
+              //seed="888206417825";
+              //seed="892913567031";
+                alert(seed);
+                if(seed.charAt(0)=="8"){
+                    document.getElementById("tree_1").width=300;
+                    document.getElementById("tree_2").width=100; 
+                        fana("tree_1");
+                        _.style.left =/*_.offsetLeft+*/Number(seed.charAt(5))+"em";
+                        _.style.top =/*_.offsetLeft+*/Number(seed.charAt(4))+"em";
+                        fana("tree_2");
+                        _.style.left =/*_.offsetLeft+*/Number(seed.charAt(3))*1.3+"em";
+                        _.style.top =/*_.offsetLeft+*/Number(seed.charAt(6))+"em";
+                    if(seed.charAt(3)=="2"){
+                        document.getElementById("tree_2").width=200;
+                    }                    
+                    if(seed.charAt(3)=="8"){
+                        document.getElementById("tree_2").width=500;
+                    }
+                }
+
+                document.body.style.backgroundColor="rgb(210, 246, 247)";
+
+                if(seed.charAt(9)=="8"){
+                    document.getElementById("place_1").width=1200;
+                        fana("place_1");
+                        _.style.top =Number("-"+seed.charAt(6)*0.5)+"em";
+                }
+                if(seed.charAt(9)=="0"){
+                    document.getElementById("place_2").width=1200;
+                        fana("place_2");
+                        _.style.top =Number("-"+seed.charAt(6)-Number(seed.charAt(8)))+"em";
+                }
+            </script>
+        <style>
+            html{
+                position:absolute;
+                /*background-color: rgb(210, 246, 247);*/
+            }
+        </style>
+    </body>
+</html> 
