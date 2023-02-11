@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html oncontextmenu="//return false;">
+<html title="a">
     <head>
         <meta charset="UTF-8">
         <style>
@@ -7,30 +7,257 @@
                 cursor:none;
                 position:fixed;
             }
+
             img{
                 cursor:none;
             }
+            
             ::selection{
                 cursor:none;
             }
+
+            .button{
+                border:solid;
+                border-color:black;
+                width:13em;
+                height:3.5em;
+                background-color:whitesmoke;
+                color:black;
+            }
+            .button:hover{
+                border-color:black;
+                background-color:green;
+                color:white;
+            }
+
+            .item{
+                width:3em;
+                background-color:green;
+                border:solid;
+                border-color:white;
+            }
+            #item{
+                width:35em;
+                height:25em;
+                background-color:grey;
+                color:white;
+                position:absolute;
+                top:7em;
+                z-index:101;
+                left:15em;
+                cursor:default;
+                overflow-x:scroll;
+            }
+            .no-width{
+                border:solid;
+                border-color:black;
+                background-color:whitesmoke;
+                color:black;
+            }
+            .no-width:hover{
+                border-color:black;
+                background-color:green;
+                color:white;
+            }
+            .jy{
+                border:solid;
+                border-color:black;
+                width:35em;
+                height:3.5em;
+                /*background-color:green;*/
+                color:white;
+            }
+
+            .jy-item{
+                width:2em;
+                background:none;
+            }
+            #item span{
+                position:relative;
+                top:-1em;
+            }
         </style>
     </head>
-    <body oncontextmenu="return false;"">
+    <body oncontextmenu="return false;">
         <script src="WGT.js"></script>
-        <div id="sprite" style="position:relative;">
-            <img src="img/tree.png" id="tree" style="position:absolute;z-index:99;">
+        <script id="buy-kz">
+            var buy_bu=false;
+            var buy_wt=false;
+        </script>
+        <span id="xy" style="color:white;font-size:16px;background-color:black;opacity:0.6;">a</span>
+        <textarea id="minner" style="position:absolute;top:-99em;">
+            <button class="no-width" onclick="javascript:mhide();">x</button>交易
+            <div class="jy" id="no-cap" onclick="javascript:cap_math=cap_math+1;">
+                <img src="img/tree.png" class="jy-item"><span>无-------------------------><img src="img/cap.png" class="jy-item"></span>
+            </div>
+            <div class="jy" id="cap-bu" onclick="javascript:buy_bu=true;buyy();">
+                <img src="img/cap.png" class="jy-item"><span>-------------------------></span><img src="img/bu.png" class="jy-item">
+            </div>
+            <div class="jy" id="bu-stick-wt" onclick="javascript:buy_wt=true;buyy();">
+                <img src="img/stick.png" class="jy-item">x2<img src="img/bu.png" class="jy-item"><span>-------------------------></span><img src="img/wt.png" class="jy-item">
+            </div>
+            
+            <div class="jy" style="background-color:grey;" id="happy">
+                <img src="img/river_tree.svg" class="jy-item">  <img src="img/river_tree2.svg" style="position:relative;left:-1em;" class="jy-item"><span id="happy_have_number"></span>
+            </div>
+            <div class="jy" id="happy2"></div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="jy" style="background-color:grey;" id="stick_have">
+                <img src="img/stick.png" class="jy-item"><span id="stick_have_number"></span>
+            </div>
+            
+        </textarea>
+        
+
+        <script id="buy-item">
+            var cap_math=0;
+            var bu_math=0;
+            var stick_math=0;
+            var wt_math=0;
+            var not_water_tree_math=0;
+            var stone_math=0;
+            var sand_math=0;
+            var yan_math=0;
+            var happy_math=0;
+            function more(){
+                if(cap_math>17){
+                    cap_math=18;
+                }
+                if(bu_math>17){
+                    bu_math=18;
+                }
+                if(stick_math>17){
+                    stick_math=18;
+                }
+                if(wt_math>17){
+                    wt_math=18;
+                }
+                if(not_water_tree_math>17){
+                    not_water_tree_math=18;
+                }
+                if(happy_math>17){
+                    happy_math=18;
+                }
+                setTimeout(more,1);
+            }
+            more();
+            function buy(){
+                if(document.getElementById("no-cap")!=null){
+                    document.getElementById("no-cap").style.backgroundColor="green";
+                }
+                if(document.getElementById("cap-bu")!=null){
+                    if(cap_math>1){
+                        document.getElementById("cap-bu").style.backgroundColor="green";
+                    }else{
+                        document.getElementById("cap-bu").style.backgroundColor="red";
+                    }
+                }
+
+                if(document.getElementById("bu-stick-wt")!=null){
+                    if(stick_math>2&&bu_math>1){
+                        document.getElementById("bu-stick-wt").style.backgroundColor="green";
+                    }else{
+                        document.getElementById("bu-stick-wt").style.backgroundColor="red";
+                    }
+                }
+
+                
+                if(document.getElementById("stick_have")!=null){
+                    if(stick_math>1){
+                        document.getElementById("stick_have").style.backgroundColor="green";
+                        document.getElementById("stick_have_number").innerHTML=String(stick_math);
+                    }else{
+                        document.getElementById("stick_have").style.backgroundColor="red";
+                    }
+                }
+
+                                
+                if(document.getElementById("happy")!=null){
+                    if(happy_math/1){
+                        document.getElementById("happy").style.backgroundColor="green";
+                        document.getElementById("happy2").style.backgroundColor="green";
+                        document.getElementById("happy_have_number").innerHTML=String(happy_math);
+                    }else{
+                        document.getElementById("happy").style.backgroundColor="red";
+                        document.getElementById("happy2").style.backgroundColor="red";
+                    }
+                }
+
+
+                setTimeout(buy,1);
+            }
+            buy();
+
+            function buyy(){
+                if(buy_bu==true){
+                    buy_bu=false;
+                    if(cap_math>1){
+                        cap_math=cap_math-1;
+                        bu_math=bu_math+1;
+                    }
+                }
+                if(buy_wt==true){
+                    buy_wt=false;
+                    if(stick_math>2&&bu_math>1){
+                        stick_math=stick_math-2;
+                        bu_math=bu_math-1;
+                        wt_math=wt_math+1;
+                    }
+                }
+            }
+        </script>
+
+
+        <div id="item">
+
+        </div>
+        <div id="sprite" style="position:absolute;">
+            <img src="img/tree.png" id="tree" style="position:absolute;z-index:99;left:10em;">
             <img src="img/grass.png" id="grass" style="position:absolute;top:20em;z-index:1;">
             <img src="img/mouse.png" id="mouse" style="position:absolute;top:13em;left:30em;z-index:100;opacity:0.6;">
+            <img src="img/sun.png" id="sun" style="position:absolute;top:0em;z-index:1;left:-2em;" width="200">
+            <img src="img/hand.png" id="hand" style="position:absolute;top:13em;z-index:100;left:64em;">
+            <img src="img/lake.png" id="lake" style="position:absolute;z-index:2;left:12em;top:20em;" width="500">
+            <img src="img/wt_st.png" id="wt" style="position:absolute;z-index:2;left:30em;top:20em;" width="200">
+            <img src="img/item.png" id="item-box" style="position:absolute;z-index:100;left:20em;top:31em;opacity:1;" width="500">
         </div>
         <script id="sprite_test">
             document.getElementById("tree").width=270;
         </script>
         <script id="start">
             document.body.style.backgroundImage="url(img/bg2.png)";
+            function mhide(){
+                document.getElementById("item").style.width=0+"px";
+                document.getElementById("item").style.fontSize=0;
+                document.getElementById("item").innerHTML="";
+            }
+            mhide();
+
+
+            document.getElementById("wt").width=0;
         </script>
         <script id="sprite_move">
             var rott=false;
             var jumpp=false;
+            var handjj=false;
+            var game={};
+            game.x=0;
+            game.y=0;
+            game.z=0;
+            
+            var wt_using=false;
+            function wt_use(){
+                if(wt_using==false){
+                    wt_using=true;
+                    stone_math=stone_math+10;
+                    sand_math=sand_math+10;
+                    yan_math=yan_math+10;
+                    setTimeout(wt_use,30000);
+                }
+            }
             function htmlRotate(){
                 if(rott==false){
                     rott=true;
@@ -40,36 +267,76 @@
                 }
             }
 
-            function jump(){
+            function handj(){
+                if(handjj==false){
+                    handjj=true;
+                    rotate("hand",-30);
+                    setTimeout('rotate("hand",0);handjj=false;',200);
+                }
 
+                if(game.x==-13){
+                    if(game.z==-1){
+                        stick_math=stick_math+1; v 
+                    }
+                }
+
+                if(game.x==-3){
+                    if(game.z==2){
+                        if(wt_math>0){
+                            document.getElementById("wt").width=200;
+                            wt_use();
+                        }
+                    }
+                }
+
+                if(game.y==2){
+                    happy_math=happy_math+1;
+                }
+            }
+
+            document.onclick=handj;
+
+            function jump(){
+                document.getElementById("sprite").style.top=document.getElementById("sprite").offsetTop-10+"px";
+                document.getElementById("sprite").style.top=document.getElementById("sprite").offsetTop+10+"px";
+                
                 if(jumpp==false){
                     jumpp=true;
-                    document.getElementById("sprite").style.top= document.getElementById("sprite").offsetTop-15+"px";
                     setTimeout('document.getElementById("sprite").style.top= document.getElementById("sprite").offsetTop-25+"px"',100);
                     setTimeout('document.getElementById("sprite").style.top= document.getElementById("sprite").offsetTop-25+"px"',200);
-                    setTimeout('document.getElementById("sprite").style.top= document.getElementById("sprite").offsetTop-25+"px"',300);
-                    setTimeout('document.getElementById("sprite").style.top= document.getElementById("sprite").offsetTop-25+"px"',400);
-                    setTimeout('document.getElementById("sprite").style.top= document.getElementById("sprite").offsetTop-25+"px"',500);
+                    setTimeout('document.getElementById("sprite").style.top= document.getElementById("sprite").offsetTop-25+"px";game.y=game.y+2;',300);
+                    setTimeout('document.getElementById("sprite").style.top= document.getElementById("sprite").offsetTop+15+"px"',400);
+                    setTimeout('document.getElementById("sprite").style.top= document.getElementById("sprite").offsetTop+15+"px"',500);
                     setTimeout('document.getElementById("sprite").style.top= document.getElementById("sprite").offsetTop+15+"px"',600);
                     setTimeout('document.getElementById("sprite").style.top= document.getElementById("sprite").offsetTop+15+"px"',700);
-                    setTimeout('document.getElementById("sprite").style.top= document.getElementById("sprite").offsetTop+15+"px"',800);
-                    setTimeout('document.getElementById("sprite").style.top= document.getElementById("sprite").offsetTop+15+"px";jumpp=false;',900);
+                    setTimeout('document.getElementById("sprite").style.top= document.getElementById("sprite").offsetTop+15+"px";jumpp=false;game.y=0;',800);
             }
+
+            
+            
         }
 
+        var item_box_opening=true;
 
             function keyy(){
                 
                 if(event.keyCode==a){
+                    game.x=game.x-1;
                     htmlRotate();
                     document.getElementById("tree").style.left=document.getElementById("tree").offsetLeft+20+"px";
+                    document.getElementById("lake").style.left=document.getElementById("lake").offsetLeft+20+"px";
+                    document.getElementById("wt").style.left=document.getElementById("wt").offsetLeft+20+"px";
                 }
                 if(event.keyCode==d){
+                    game.x=game.x+1;
                     htmlRotate();
                     document.getElementById("tree").style.left=document.getElementById("tree").offsetLeft-20+"px";
+                    document.getElementById("lake").style.left=document.getElementById("lake").offsetLeft-20+"px";
+                    document.getElementById("wt").style.left=document.getElementById("wt").offsetLeft-20+"px";
                 }
 
                 if(event.keyCode==w){
+                    game.z=game.z+1;
                     htmlRotate();
                     if(document.getElementById("tree").width>426){
                         document.getElementById("tree").width=427;
@@ -77,9 +344,26 @@
                         document.getElementById("tree").width=document.getElementById("tree").width+document.getElementById("tree").width/50;
                         document.getElementById("tree").style.top=document.getElementById("tree").offsetTop-document.getElementById("tree").width/50*1.8+"px";
                     }
+
+                    if(document.getElementById("lake").width>526){
+                        document.getElementById("lake").width=526;
+                    }else{
+                        document.getElementById("lake").width=document.getElementById("lake").width+document.getElementById("lake").width/50;
+                        document.getElementById("lake").style.top=document.getElementById("lake").offsetTop-document.getElementById("lake").width/50*1.8+"px";
+                    }
+
+                    if(wt_math>0){
+                        if(document.getElementById("wt").width>300){
+                            document.getElementById("wt").width=299;
+                        }else{
+                            document.getElementById("wt").width=document.getElementById("wt").width+document.getElementById("wt").width/50;
+                            document.getElementById("wt").style.top=document.getElementById("wt").offsetTop-document.getElementById("wt").width/50*1.8+"px";
+                        }
+                    }
                 }
 
                 if(event.keyCode==s){
+                    game.z=game.z-1;
                     htmlRotate();
                     if(document.getElementById("tree").width<300){
                         document.getElementById("tree").width=299;
@@ -87,11 +371,29 @@
                         document.getElementById("tree").width=document.getElementById("tree").width-document.getElementById("tree").width/50;
                         document.getElementById("tree").style.top=document.getElementById("tree").offsetTop+document.getElementById("tree").width/50*1.8+"px";
                     }
-                }
+
+                    if(wt_math>0){
+                        if(document.getElementById("wt").width<200){
+                            document.getElementById("wt").width=199;
+                        }else{
+                                document.getElementById("wt").width=document.getElementById("wt").width-document.getElementById("wt").width/50;
+                                document.getElementById("wt").style.top=document.getElementById("wt").offsetTop-document.getElementById("wt").width/50*1.8+"px";
+                       
+                        }
+                    }
+                    }
+                
 
 
                 if(event.keyCode==32){
                     jump();
+                }
+
+
+                if(event.keyCode==m){
+                     document.getElementById("item").style.width=35+"em";
+                     document.getElementById("item").style.fontSize=20+"px";
+                     document.getElementById("item").innerHTML=document.getElementById("minner").value;
                 }
 
               
@@ -99,8 +401,27 @@
                     document.getElementById("tree").style.top="-250"+"px";
                 }
 
+                              
+              if(Number(document.getElementById("lake").style.top.replace(/px/g, ""))<283){
+                    document.getElementById("lake").style.top="283"+"px";
+                }
+
+                if(Number(document.getElementById("wt").style.top.replace(/px/g, ""))<283){
+                    document.getElementById("wt").style.top="283"+"px";
+                }
+
             
 
+
+                if(event.keyCode==z){
+                    if(item_box_opening==true){
+                        document.getElementById("item-box").width=0;
+                        item_box_opening=false;
+                    }else{ 
+                        item_box_opening=true;
+                        document.getElementById("item-box").width=500;
+                    }
+                }
             }
             document.onkeydown=keyy;
 
@@ -110,6 +431,59 @@
                 setTimeout(killK,2000);
             }
             killK();
+
+            function gameXY(){
+                document.getElementById("xy").innerHTML=game.x+","+game.z+","+game.y;
+                if(game.z>24){
+                    game.z=25;
+                }
+                if(game.z<0){
+                    game.z=-1;
+                }
+                setTimeout(gameXY,1);
+            }
+            gameXY();
+        </script>
+
+        <script id="sun">
+            var sun_time=0;
+            document.getElementById("sun").style.top=document.getElementById("sun").offsetTop-10+"px";
+            setTimeout('document.getElementById("sun").style.top=document.getElementById("sun").offsetTop-10+"px";document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',1000+sun_time);
+            setTimeout('document.getElementById("sun").style.top=document.getElementById("sun").offsetTop-10+"px";document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',2000+sun_time);
+            setTimeout('document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',3000+sun_time);
+            setTimeout('document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',4000+sun_time);
+            setTimeout('document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',5000+sun_time);
+            setTimeout('document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',6000+sun_time);
+            setTimeout('document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',7000+sun_time);
+            setTimeout('document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',8000+sun_time);
+            setTimeout('document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',9000+sun_time);
+            setTimeout('document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',10000+sun_time);
+            setTimeout('document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',11000+sun_time);
+            setTimeout('document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',12000+sun_time);
+            setTimeout('document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',13000+sun_time);
+            setTimeout('document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',14000+sun_time);
+            setTimeout('document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',15000+sun_time);
+            setTimeout('document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',16000+sun_time);
+            setTimeout('document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',17000+sun_time);
+            setTimeout('document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',18000+sun_time);
+            setTimeout('document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',19000+sun_time);
+            setTimeout('document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',20000+sun_time);
+            setTimeout('document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',21000+sun_time);
+            setTimeout('document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',22000+sun_time);
+            setTimeout('document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',23000+sun_time);
+            setTimeout('document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',24000+sun_time);
+            setTimeout('document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',25000+sun_time);
+            setTimeout('document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',26000+sun_time);
+            setTimeout('document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',27000+sun_time);
+            setTimeout('document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',28000+sun_time);
+            setTimeout('document.getElementById("sun").style.left=document.getElementById("sun").offsetLeft+10+"px";',29000+sun_time);
+
+
+
+
+
+
+
         </script>
 
     </body>

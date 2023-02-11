@@ -3,6 +3,26 @@
         <meta charset="UTF-8">
     </head>
     <body>
+        <div id="tq" style="position:absolute;top:-99em;">
+            <textarea id="OX">
+
+                <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body background="bg5.png">
+        <script src="OX360_3D.js"></script>
+        <script>
+            OX360(400,0.0016,"test");
+            setTimeout("location.reload();",10000);
+        </script>
+        <br>
+    </body>
+</html>
+
+            </textarea>
+        </div>
 
         <div id="head-block">
             <span id="web-ico">
@@ -17,6 +37,7 @@
           <a href="#lz"><button class="nav-btn" style="color:yellow;"> <div id="lz-btn">乐子专区</div></button></a>
             <a href="#find"><button class="nav-btn"><div id="find-btn">探索发现</div></button></a>
             <a href="#sj"><button class="nav-btn" style="color:lightgreen;"><img src="img/ico.png" class="head-pic-small">百宝箱</button></a>
+            <a href="#js"><button class="nav-btn"><div id="find-btn"><span style="color:green;">技术区</span></div></button></a>
         </nav>
         <div id="and1">
             <div id="and1-ico">
@@ -48,6 +69,15 @@
                 </div>
         </div>
 
+<br>
+    <div id="and4">
+        <img src="img/fuk.png" class="and-say-pic">
+            <span id="and4-name" style="font-size:50px;"></span>
+            <div class="and-say">
+                星光工作室代表人 , 星光工作室是一个正常切有项目可开发的工作室
+        </div>
+</div>
+
         <div id="watermelon">
             <div id="watermelon-ico">
                 <img src="img/ico.png" class="head-pic">
@@ -61,6 +91,7 @@
             OCTER<img src="img/OCTER.png" class="head-pic">
             网络爆破队<img src="img/int-cio.png" class="head-pic">
             无限工作室<img src="img/long.png" class="head-pic">
+            星光工作室<img src="img/xj.png" class="head-pic">
         </div>
         <div id="lz-zq">
             <h1 style="color:yellow;">乐子专区</h1>
@@ -185,6 +216,21 @@
              <a href="#sj" onClick="sj();" class="a">生成好玩的</a>
             </div>
         </div>
+        <br>
+        <br>
+        <a name="js"></a>
+        <h1>技术区</h1>
+        <div class="lz-hhh">
+            近期,委会研发出了一款可以渲染和对角色加工的3D渲染器、操作器,并命名为"OX360".<br>
+            渲染前:<br>
+            <img src="star/bg5.png">
+            <br>
+            渲染后:<br>
+            <a href="star/OX360.html" class="a">效果展览</a>
+            <br>
+            <br>
+            其原理,就是把屏幕分成360个区域,然后再进行渲染,可以控制光源的走向和强度,从而让图片更加真实和圆润.
+        </div>
         
 <style>
     nav{
@@ -233,6 +279,7 @@
     }
     .and-say-pic{
         width:5em;
+        border-radius:50px;
     }
     h1{
         color:white;
@@ -266,6 +313,14 @@
         opacity:0.6;
         color:white;
     }
+    .lz-hhh{
+        border:none;
+        border-radius:10px;
+        color:white;
+        font-size:20px;
+        background:black;
+        opacity:0.6;
+    }
 </style>
 <script>
 var ico="";
@@ -283,6 +338,7 @@ and2_ico="img/OCTRE.png";
 and2_name="༺༃Sroiem༃༻";
 and3_ico="img/long.png";
 and3_name="Detective_code";
+and4_name="Fuck";
 function gx(){
     document.getElementById("web-ico").innerHTML="<img src='"+ico+"' class='head-pic-big'>";
     document.getElementById("web-name").innerHTML=name;
@@ -292,9 +348,9 @@ function gx(){
     document.getElementById("and2-name").innerHTML=and2_name;
     document.getElementById("and3-ico").innerHTML="<img src='"+and3_ico+"' class='head-pic'>";
     document.getElementById("and3-name").innerHTML=and3_name;
+    document.getElementById("and4-name").innerHTML=and4_name;
 }
 gx();
-
 function ck(){
     document.write("<a href='view-source:"+document.URL+"' style='font-size:50px;'>查看源代码</a>");
 }

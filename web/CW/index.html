@@ -6,16 +6,16 @@
         <body>
             <img src="a.png" id="test" style="border:solid;">
             <script>
+                if(screen.width>screen.height){
+                    document.body.innerHTML="";
+                }
                 if(RegExp("st").test(document.URL)==true){
                     document.getElementById("test").width=screen.width*4;
                 
                 if(screen.width<screen.height){
                     document.getElementById("test").width=screen.width*4;
-                }else{
-                    document.body.innerHTML="";
                 }
             }
-    setTimeout("location.reload();",1000);
 
             </script>
     </body>

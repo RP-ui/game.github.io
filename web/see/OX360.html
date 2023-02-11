@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script src="OX360_3D.js"></script>
+        <script>
+            OX360(400,0.0016,"test");
+        </script>
+        <img src="img/river_tree.png" id="hhh" style="z-index:0;">
+        <script>
+            sprite(
+                "id:hhh",
+                "size:500",
+                 "x:0",
+                  "y:20"
+                );
+                function keyy(){
+                    Zpp("hhh",50);
+                    Ypp("hhh",1);
+                }
+                document.onkeydown=keyy;
+                
+        </script>
+        <br>
+         <img src="img/river_tree.png">
+    </body>
+</html>
