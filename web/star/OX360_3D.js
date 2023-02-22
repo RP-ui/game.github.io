@@ -1,6 +1,6 @@
 function OX360(a,b,c){
     var times=0;
-    var opacity=-0.001;
+    var opacity=0.3;
     document.write("<div id=\""+c+"\" style=\"z-index:100;position:relative;\">"+"</div>");
 for(var i=0;i<400;i++){
     times=times+1;

@@ -1,15 +1,17 @@
-function OX360(a,b,c){
+function OX360(a,b,c,d,e,f){
+    if(document.getElementById(c)==null){
+        document.write("<div id=\""+c+"\" style=\"z-index:100;position:relative;\">"+"</div>");
+    }
     var times=0;
-    var opacity=-0.001;
-    document.write("<div id=\""+c+"\" style=\"z-index:100;position:relative;\">"+"</div>");
-for(var i=0;i<400;i++){
+    var opacity=f;
+for(var i=0;i<e;i++){
     times=times+1;
     if(times>a){
         opacity=opacity-b;
     }else{
     opacity=opacity+b;
     }
-    document.getElementById(c).innerHTML=document.getElementById(c).innerHTML+("<div id='_"+times+"' style='background:white;width:"+Math.floor(screen.width/360)+"px"+";height:"+Math.floor(screen.height)+"px"+";float:left;z-index:99;'></div>");
+    document.getElementById(c).innerHTML=document.getElementById(c).innerHTML+("<div id='_"+times+"' style='background:"+d+";width:"+Math.floor(screen.width/e)+"px"+";height:"+Math.floor(screen.height)+"px"+";float:left;z-index:200;'></div>");
     document.getElementById("_"+times).style.opacity=opacity;
 }
 }
